@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Product.InventoryManagement.Application.DTOs;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProducts;
+using Product.InventoryManagement.Application.Features.Product.Queries.GetProduct;
+using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,9 +28,10 @@ namespace Product.InventoryManagement.Api.Controllers
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<ProductItem>> Get(Guid id)
         {
-            return "value";
+            var product = await _mediator.Send(new GetProductQuery(id));
+            return Ok(product);
         }
 
         // POST api/<ProductController>
