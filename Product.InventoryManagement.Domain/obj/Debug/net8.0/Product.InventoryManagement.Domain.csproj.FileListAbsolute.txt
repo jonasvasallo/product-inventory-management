@@ -1,0 +1,11 @@
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\bin\Debug\net8.0\Product.InventoryManagement.Domain.deps.json
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\bin\Debug\net8.0\Product.InventoryManagement.Domain.dll
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\bin\Debug\net8.0\Product.InventoryManagement.Domain.pdb
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\Product.InventoryManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\Product.InventoryManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\Product.InventoryManagement.Domain.AssemblyInfo.cs
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\Product.InventoryManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\Product.InventoryManagement.Domain.dll
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\refint\Product.InventoryManagement.Domain.dll
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\Product.InventoryManagement.Domain.pdb
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Domain\obj\Debug\net8.0\ref\Product.InventoryManagement.Domain.dll

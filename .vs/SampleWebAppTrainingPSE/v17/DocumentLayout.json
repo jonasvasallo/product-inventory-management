@@ -1,0 +1,309 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{28090423-7AE0-43BC-A45B-B1256A38057D}|Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28090423-7AE0-43BC-A45B-B1256A38057D}|Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj|solutionrelative:product.inventorymanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.application\\addapplicationservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|solutionrelative:product.inventorymanagement.application\\addapplicationservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|solutionrelative:product.inventorymanagement.domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.domain\\entities\\inventorytransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|solutionrelative:product.inventorymanagement.domain\\entities\\inventorytransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|solutionrelative:product.inventorymanagement.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.persistence\\databasecontext\\inventorydatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|solutionrelative:product.inventorymanagement.persistence\\databasecontext\\inventorydatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.persistence\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|solutionrelative:product.inventorymanagement.persistence\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.persistence\\addpersistenceservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|solutionrelative:product.inventorymanagement.persistence\\addpersistenceservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.application\\product.inventorymanagement.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|solutionrelative:product.inventorymanagement.application\\product.inventorymanagement.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.persistence\\product.inventorymanagement.persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{42779F03-6A96-4172-9B15-A1622D6356E6}|Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj|solutionrelative:product.inventorymanagement.persistence\\product.inventorymanagement.persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.domain\\product.inventorymanagement.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D9A71157-5E53-4351-9BFA-A8DBA3037EA2}|Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj|solutionrelative:product.inventorymanagement.domain\\product.inventorymanagement.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.application\\contracts\\persistence\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|solutionrelative:product.inventorymanagement.application\\contracts\\persistence\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.application\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|solutionrelative:product.inventorymanagement.application\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.application\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|solutionrelative:product.inventorymanagement.application\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.application\\dtos\\inventorytransactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|solutionrelative:product.inventorymanagement.application\\dtos\\inventorytransactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.application\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F37EA4-9ED6-431A-8ACC-1ABA5A2A0060}|Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj|solutionrelative:product.inventorymanagement.application\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28090423-7AE0-43BC-A45B-B1256A38057D}|Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj|c:\\users\\j.vasallo\\source\\repos\\samplewebapptrainingpse\\product.inventorymanagement.api\\product.inventorymanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{28090423-7AE0-43BC-A45B-B1256A38057D}|Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj|solutionrelative:product.inventorymanagement.api\\product.inventorymanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InventoryDatabaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\DatabaseContext\\InventoryDatabaseContext.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Persistence\\DatabaseContext\\InventoryDatabaseContext.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\DatabaseContext\\InventoryDatabaseContext.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Persistence\\DatabaseContext\\InventoryDatabaseContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwCAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:30:12.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Persistence\\Repositories\\GenericRepository.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Persistence\\Repositories\\GenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:21:23.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddPersistenceServices.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\AddPersistenceServices.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Persistence\\AddPersistenceServices.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\AddPersistenceServices.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Persistence\\AddPersistenceServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T02:43:11.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Domain\\Entities\\Product.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Entities\\Product.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Domain\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T02:51:26.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InventoryTransaction.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Entities\\InventoryTransaction.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Domain\\Entities\\InventoryTransaction.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Entities\\InventoryTransaction.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Domain\\Entities\\InventoryTransaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:00:16.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Common\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Domain\\Common\\BaseEntity.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Common\\BaseEntity.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Domain\\Common\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T02:51:47.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddApplicationServices.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\AddApplicationServices.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Application\\AddApplicationServices.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\AddApplicationServices.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Application\\AddApplicationServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T02:42:42.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Api\\Program.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T02:47:15.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Product.InventoryManagement.Application.csproj",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj",
+              "RelativeToolTip": "Product.InventoryManagement.Application\\Product.InventoryManagement.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-02T02:14:49.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Product.InventoryManagement.Persistence",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj",
+              "RelativeToolTip": "Product.InventoryManagement.Persistence\\Product.InventoryManagement.Persistence.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-02T03:23:22.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Contracts\\Persistence\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Application\\Contracts\\Persistence\\IGenericRepository.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Contracts\\Persistence\\IGenericRepository.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Application\\Contracts\\Persistence\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:20:25.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BadRequestException.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Exceptions\\BadRequestException.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Application\\Exceptions\\BadRequestException.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Exceptions\\BadRequestException.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Application\\Exceptions\\BadRequestException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:12:23.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Application\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Application\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:12:52.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Product.InventoryManagement.Domain.csproj",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj",
+              "RelativeToolTip": "Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-02T01:41:34.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "InventoryTransactionDto.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\DTOs\\InventoryTransactionDto.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Application\\DTOs\\InventoryTransactionDto.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\DTOs\\InventoryTransactionDto.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Application\\DTOs\\InventoryTransactionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:15:37.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\DTOs\\ProductDto.cs",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Application\\DTOs\\ProductDto.cs",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Application\\DTOs\\ProductDto.cs",
+              "RelativeToolTip": "Product.InventoryManagement.Application\\DTOs\\ProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:15:12.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Product.InventoryManagement.Api",
+              "DocumentMoniker": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj",
+              "RelativeDocumentMoniker": "Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj",
+              "ToolTip": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj",
+              "RelativeToolTip": "Product.InventoryManagement.Api\\Product.InventoryManagement.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-02T02:39:39.077Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
