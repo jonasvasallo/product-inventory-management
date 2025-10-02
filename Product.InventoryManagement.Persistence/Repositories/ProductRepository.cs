@@ -1,4 +1,6 @@
-﻿using Product.InventoryManagement.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Product.InventoryManagement.Application.Contracts.Persistence;
 using Product.InventoryManagement.Persistence.DatabaseContext;
 using System;
 using System.Collections.Generic;
@@ -15,25 +17,10 @@ namespace Product.InventoryManagement.Persistence.Repositories
         {
             
         }
-        
-        public Task<ProductItem> GetProduct(Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<List<ProductItem>> GetProducts()
+        public async Task<bool> ProductUnique(string productName)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ProductExists(string productName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(ProductItem entity)
-        {
-            throw new NotImplementedException();
+            return await _inventoryDatabaseContext.Products.AnyAsync(entity => entity.Name == productName) == false;
         }
     }
 }

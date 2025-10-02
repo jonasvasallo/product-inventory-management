@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Product.InventoryManagement.Application.DTOs;
+using Product.InventoryManagement.Application.Features.Product.Commands.CreateProduct;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Product.InventoryManagement.Application.Mapper
     {
         public ProductProfile() { 
             CreateMap<ProductDto, ProductItem>().ReverseMap();
+            CreateMap<CreateProductCommand, ProductItem>();
         }
     }
 }

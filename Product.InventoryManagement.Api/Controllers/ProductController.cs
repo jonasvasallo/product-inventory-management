@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Product.InventoryManagement.Application.DTOs;
+using Product.InventoryManagement.Application.Features.Product.Commands.CreateProduct;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProducts;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetProduct;
 using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
@@ -36,8 +37,10 @@ namespace Product.InventoryManagement.Api.Controllers
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult> Post(CreateProductCommand createProductCommand)
         {
+            var response = await _mediator.Send(createProductCommand);
+            return CreatedAtAction(nameof(Get), new { Id = response });
         }
 
         // PUT api/<ProductController>/5

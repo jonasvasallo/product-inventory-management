@@ -9,10 +9,8 @@ namespace Product.InventoryManagement.Application.Contracts.Persistence
 {
     public interface IProductRepository : IGenericRepository<ProductItem>
     {
-        Task<List<ProductItem>> GetProducts();
-
-        Task<ProductItem> GetProduct(Guid id);
-        Task<bool> ProductExists(string productName);
+        
+        Task<bool> ProductUnique(string productName);
 
     }
 }
