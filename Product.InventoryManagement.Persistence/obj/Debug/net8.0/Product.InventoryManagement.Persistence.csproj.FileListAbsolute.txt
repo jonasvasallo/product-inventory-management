@@ -17,3 +17,4 @@ C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagem
 C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Persistence\obj\Debug\net8.0\Product.InventoryManagement.Persistence.pdb
 C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Persistence\obj\Debug\net8.0\Product.InventoryManagement.Persistence.genruntimeconfig.cache
 C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Persistence\obj\Debug\net8.0\ref\Product.InventoryManagement.Persistence.dll
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Persistence\obj\Debug\net8.0\Product.InventoryManagement.Persistence.sourcelink.json

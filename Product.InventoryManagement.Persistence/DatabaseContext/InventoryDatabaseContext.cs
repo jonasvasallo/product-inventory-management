@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
 
 namespace Product.InventoryManagement.Persistence.DatabaseContext
 {
@@ -12,10 +13,13 @@ namespace Product.InventoryManagement.Persistence.DatabaseContext
     {
         public InventoryDatabaseContext(DbContextOptions<InventoryDatabaseContext> options) : base(options)
         {
-            // TODO: Add all the tables here
-            // Ex.
-            // public DbSet<LeaveType> LeaveTypes { get; set; }
+            
         }
+
+        // TODO: Add all the tables here
+        // Ex.
+        // public DbSet<LeaveType> LeaveTypes { get; set; }
+        public DbSet<ProductItem> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

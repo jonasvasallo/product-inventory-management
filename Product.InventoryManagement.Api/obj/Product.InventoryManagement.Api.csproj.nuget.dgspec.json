@@ -118,7 +118,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj": {
+                "projectPath": "C:\\Users\\j.vasallo\\source\\repos\\SampleWebAppTrainingPSE\\Product.InventoryManagement.Domain\\Product.InventoryManagement.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

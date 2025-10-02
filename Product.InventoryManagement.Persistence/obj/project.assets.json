@@ -1155,7 +1155,8 @@
           "AutoMapper": "15.0.1",
           "FluentValidation": "12.0.0",
           "FluentValidation.DependencyInjectionExtensions": "12.0.0",
-          "MediatR": "13.0.0"
+          "MediatR": "13.0.0",
+          "Product.InventoryManagement.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Product.InventoryManagement.Application.dll": {}

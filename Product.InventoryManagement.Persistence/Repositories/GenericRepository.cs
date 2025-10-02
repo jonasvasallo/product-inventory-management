@@ -3,36 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Product.InventoryManagement.Application.Contracts.Persistence;
 using Product.InventoryManagement.Domain.Common;
+using Product.InventoryManagement.Persistence.DatabaseContext;
 
 namespace Product.InventoryManagement.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
-        public Task CreateAsync(T entity)
+        protected readonly InventoryDatabaseContext _inventoryDatabaseContext;
+
+        public GenericRepository(InventoryDatabaseContext inventoryDatabaseContext)
         {
-            throw new NotImplementedException();
+            _inventoryDatabaseContext = inventoryDatabaseContext;
+        }
+        public async Task CreateAsync(T entity)
+        {
+            await _inventoryDatabaseContext.AddAsync(entity);
+            await _inventoryDatabaseContext.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(T entity)
+        public async Task DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            _inventoryDatabaseContext.Remove(entity);
+            await _inventoryDatabaseContext.SaveChangesAsync();
         }
 
-        public Task<IReadOnlyList<T>> GetAsync()
+        public async Task<IReadOnlyList<T>> GetAsync()
         {
-            throw new NotImplementedException();
+            return await _inventoryDatabaseContext.Set<T>().AsNoTracking().ToListAsync();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _inventoryDatabaseContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(entity => entity.Id == id);
         }
 
-        public Task UpdateAsync(T entity)
+        public async Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _inventoryDatabaseContext.Entry(entity).State = EntityState.Modified;
+            await _inventoryDatabaseContext.SaveChangesAsync();
+        }
+
+        Task IGenericRepository<T>.CreateAsync(T entity)
+        {
+            return CreateAsync(entity);
         }
     }
 }

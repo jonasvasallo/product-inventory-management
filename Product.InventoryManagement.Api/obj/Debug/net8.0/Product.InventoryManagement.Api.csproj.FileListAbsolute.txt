@@ -152,3 +152,4 @@ C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagem
 C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Api\obj\Debug\net8.0\Product.InventoryManagement.Api.pdb
 C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Api\obj\Debug\net8.0\Product.InventoryManagement.Api.genruntimeconfig.cache
 C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Api\obj\Debug\net8.0\ref\Product.InventoryManagement.Api.dll
+C:\Users\j.vasallo\source\repos\SampleWebAppTrainingPSE\Product.InventoryManagement.Api\obj\Debug\net8.0\Product.InventoryManagement.Api.sourcelink.json
