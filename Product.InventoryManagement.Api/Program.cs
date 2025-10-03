@@ -1,3 +1,4 @@
+using Product.InventoryManagement.Api.Middleware;
 using Product.InventoryManagement.Application;
 using Product.InventoryManagement.Persistence;
 
@@ -16,6 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options => options.AddPolicy("all", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
