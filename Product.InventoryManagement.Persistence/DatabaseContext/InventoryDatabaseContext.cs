@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Product.InventoryManagement.Domain.Common;
+using Product.InventoryManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Product.InventoryManagement.Persistence.DatabaseContext
         // Ex.
         // public DbSet<LeaveType> LeaveTypes { get; set; }
         public DbSet<ProductItem> Products { get; set; }
+        public DbSet<InventoryTransaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

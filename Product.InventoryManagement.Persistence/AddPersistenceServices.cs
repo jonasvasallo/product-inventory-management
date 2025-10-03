@@ -26,6 +26,7 @@ namespace Product.InventoryManagement.Persistence
             // TODO: Add entity repositories here
             // <Interface, Implementation>
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
 
 
             return services;

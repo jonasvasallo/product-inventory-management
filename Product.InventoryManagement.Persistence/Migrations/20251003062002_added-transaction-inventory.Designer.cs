@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Product.InventoryManagement.Persistence.DatabaseContext;
 
@@ -11,9 +12,11 @@ using Product.InventoryManagement.Persistence.DatabaseContext;
 namespace Product.InventoryManagement.Persistence.Migrations
 {
     [DbContext(typeof(InventoryDatabaseContext))]
-    partial class InventoryDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20251003062002_added-transaction-inventory")]
+    partial class addedtransactioninventory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
