@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Product.InventoryManagement.Application.DTOs;
 using Product.InventoryManagement.Application.Features.Product.Commands.CreateProduct;
+using Product.InventoryManagement.Application.Features.Product.Commands.DeleteProduct;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProducts;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetProduct;
 using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
@@ -51,8 +52,11 @@ namespace Product.InventoryManagement.Api.Controllers
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<Unit>> Delete(Guid id)
         {
+            var deleteProductCommand = new DeleteProductCommand { Id = id };
+            var response = await _mediator.Send(deleteProductCommand);
+            return NoContent();
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Product.InventoryManagement.Application.Features.Product.Queries.GetPr
         {
             _productRepository = productRepository;
         }
-        public Task<ProductItem> Handle(GetProductQuery request, CancellationToken cancellationToken)
+        public async Task<ProductItem> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
-            var product = _productRepository.GetByIdAsync(request.id);
+            var product = await _productRepository.GetByIdAsync(request.Id);
 
             if(product == null)
             {
-                throw new NotFoundException(nameof(product));
+                throw new NotFoundException(nameof(product), request.Id);
             }
 
 
