@@ -32,11 +32,14 @@ namespace Product.InventoryManagement.Persistence.DatabaseContext
         {
             foreach (var entry in base.ChangeTracker.Entries<BaseEntity>().Where(entity => entity.State == EntityState.Added || entity.State == EntityState.Modified))
             {
-                entry.Entity.CreatedAt = DateTime.Now;
-
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.UpdatedAt = DateTime.Now;
+                    entry.Entity.CreatedAt = DateTime.UtcNow;
+                    entry.Entity.UpdatedAt = DateTime.UtcNow; 
+                }
+                else if (entry.State == EntityState.Modified)
+                {
+                    entry.Entity.UpdatedAt = DateTime.UtcNow;
                 }
             }
 

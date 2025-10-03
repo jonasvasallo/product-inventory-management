@@ -1,8 +1,10 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Product.InventoryManagement.Application.DTOs;
 using Product.InventoryManagement.Application.Features.Product.Commands.CreateProduct;
 using Product.InventoryManagement.Application.Features.Product.Commands.DeleteProduct;
+using Product.InventoryManagement.Application.Features.Product.Commands.UpdateProduct;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProducts;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetProduct;
 using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
@@ -16,9 +18,11 @@ namespace Product.InventoryManagement.Api.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public ProductController(IMediator mediator)
+        private readonly IMapper _mapper;
+        public ProductController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
         // GET: api/<ProductController>
         [HttpGet]
@@ -45,9 +49,11 @@ namespace Product.InventoryManagement.Api.Controllers
         }
 
         // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<ActionResult<UpdateProductCommand>> Put(UpdateProductCommand updateProductCommand)
         {
+            await _mediator.Send(updateProductCommand);
+            return Ok(updateProductCommand);
         }
 
         // DELETE api/<ProductController>/5
