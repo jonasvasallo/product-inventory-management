@@ -49,11 +49,19 @@ namespace Product.InventoryManagement.Api.Controllers
         }
 
         // PUT api/<ProductController>/5
-        [HttpPut]
-        public async Task<ActionResult<UpdateProductCommand>> Put(UpdateProductCommand updateProductCommand)
+        [HttpPut("{id}")]
+        public async Task<ActionResult<UpdateProductCommand>> Put(Guid id, UpdateProductDto dto)
         {
-            await _mediator.Send(updateProductCommand);
-            return Ok(updateProductCommand);
+            var command = new UpdateProductCommand
+            {
+                Id = id,
+                Name = dto.Name,
+                Description = dto.Description,
+                Price = dto.Price,
+                Quantity = dto.Quantity
+            };
+            await _mediator.Send(command);
+            return Ok(command);
         }
 
         // DELETE api/<ProductController>/5
