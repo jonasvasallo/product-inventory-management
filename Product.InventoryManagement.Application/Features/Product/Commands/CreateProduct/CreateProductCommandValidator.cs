@@ -18,7 +18,7 @@ namespace Product.InventoryManagement.Application.Features.Product.Commands.Crea
             RuleFor(product => product.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
-                .MaximumLength(70).WithMessage("{PropertyName} must not exceed 70 characters");
+                .MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters");
             RuleFor(product => product.Description)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()

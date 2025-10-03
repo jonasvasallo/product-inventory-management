@@ -14,7 +14,14 @@ namespace Product.InventoryManagement.Persistence.Configurations
         public void Configure(EntityTypeBuilder<ProductItem> builder)
         {
             builder.Property(p => p.Price)
-        .HasColumnType("decimal(18, 2)"); // 18 total digits, 2 decimal places
+                .HasColumnType("decimal(10, 2)"); // 10 total digits, 2 decimal places
+            builder.Property(p => p.Name)
+                .IsRequired()
+                .HasMaxLength(100);
+            builder.Property(p => p.CreatedAt)
+                .HasDefaultValue(DateTime.Now);
+            builder.Property(p => p.UpdatedAt)
+                .HasDefaultValue(DateTime.Now);
 
             builder.HasData(
                 [
