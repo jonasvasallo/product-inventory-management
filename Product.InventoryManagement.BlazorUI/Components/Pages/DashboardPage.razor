@@ -1,0 +1,11 @@
+﻿@page "/"
+@inject HeaderDataService headerDataService;
+
+<span>This is the dashboard page</span>
+
+
+@code {
+    protected override void OnInitialized(){
+        headerDataService.Title = "Dashboard";
+    }
+}

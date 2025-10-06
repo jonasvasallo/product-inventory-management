@@ -1,0 +1,10 @@
+@page "/product"
+@inject HeaderDataService headerDataService;
+
+<span>This is manage products page</span>
+
+@code {
+    protected override void OnInitialized(){
+        headerDataService.Title = "Manage Products";
+    }
+}

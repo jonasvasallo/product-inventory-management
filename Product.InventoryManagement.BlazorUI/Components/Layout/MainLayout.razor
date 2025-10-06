@@ -1,23 +1,25 @@
 ﻿@inherits LayoutComponentBase
+@inject HeaderDataService headerDataService;
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<PageTitle>@headerDataService.Title</PageTitle>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+<div class="flex">
+    <SideBar />
 
-        <article class="content px-4">
+    <main class="w-full">
+        <Header/>
+        <div class="p-4">
             @Body
-        </article>
+        </div>
+        
     </main>
 </div>
 
-<div id="blazor-error-ui">
+@* 
+    TODO : Modal functionality
+    <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
-</div>
+</div> 
+*@

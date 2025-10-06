@@ -1,0 +1,44 @@
+﻿<div id="sidebar" class="w-[280px] bg-white sticky h-screen pl-2 pt-2">
+    <div class="flex justify-start items-center h-[80px] border-b-gray-200 border-b-2 border-solid">
+        <img src="images/PSE-LOGO_RGB_BLUE.png" alt="Company Logo" class="w-[80px] object-contain"/>
+    </div>
+    <div class="flex flex-col">
+        <div>
+            <NavLink 
+                class="flex gap-2 items-center p-4 text-blue-950"
+                href=""
+                Match="NavLinkMatch.All"
+                ActiveClass="bg-blue-950 text-white"
+            >
+                <i class="fa-regular fa-house"></i>
+                <span class="font-medium">Dashboard</span>
+            </NavLink>
+        </div>
+        <div>
+            <NavLink 
+                class="flex gap-2 items-center p-4 text-blue-950"
+                href="product"
+                Match="NavLinkMatch.All"
+                ActiveClass="bg-blue-950 text-white"
+            >
+                <i class="fa-regular fa-clipboard"></i>
+                <span class="font-medium">Manage Products</span>
+            </NavLink>
+        </div>
+        <div>
+            <NavLink 
+                class="flex gap-2 items-center p-4 text-blue-950"
+                href="user"
+                Match="NavLinkMatch.All"
+                ActiveClass="bg-blue-950 text-white"
+            >
+                <i class="fa-regular fa-user"></i>
+                <span class="font-medium">Users</span>
+            </NavLink>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

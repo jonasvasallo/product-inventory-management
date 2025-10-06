@@ -1,0 +1,10 @@
+﻿@page "/user"
+@inject HeaderDataService headerDataService;
+
+<span>This is the user page</span>
+
+@code {
+    protected override void OnInitialized(){
+        headerDataService.Title = "Manage Users";
+    }
+}

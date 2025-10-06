@@ -1,0 +1,35 @@
+@inject HeaderDataService headerDataService;
+
+<div class="h-[80px] bg-blue-950 p-4 flex justify-between items-center pr-16 text-white">
+    <span class="font-semibold text-xl">@_pageTitle</span>
+    <div class="flex gap-4">
+        <div class="border-r-2 border-r-white pr-4">
+            <span>RoleName</span>
+        </div>
+        <div class="flex flex-col gap-1">
+            <span>Welcome back, </span>
+            <span class=" font-semibold text-base">FirstName M. LastName</span>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _pageTitle = "Loading...";
+
+    protected override void OnInitialized()
+    {
+        _pageTitle = headerDataService.Title;
+        headerDataService.OnChange += UpdateTitle;
+    }
+
+    private void UpdateTitle()
+    {
+        _pageTitle = headerDataService.Title;
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        headerDataService.OnChange -= UpdateTitle;
+    }
+}
