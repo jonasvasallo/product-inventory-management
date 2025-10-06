@@ -1,10 +1,53 @@
 @page "/product"
+@using Product.InventoryManagement.Application.DTOs
+@using Product.InventoryManagement.BlazorUI.Services.Contracts;
 @inject HeaderDataService headerDataService;
+@inject IProductService productService;
 
-<span>This is manage products page</span>
+<div>
+    <span>This is manage products page</span>
+    <table class="w-full">
+        <thead class="text-xs text-gray-800 border-b-1 border-b-gray-300 table-header-group">
+            <tr>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Product ID</th>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Name</th>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Price</th>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Stock</th>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if(products == null)
+        {
+            <div>
+                    <span class="text-red-500 font-semibold">No products found.</span>
+            </div>
+        } else
+        {
+            @foreach (var product in products)
+            {
+                <tr class="even:bg-gray-100 odd:bg-white">
+                    <td class="p-4 text-xs text-gray-700 text-left">@product.Id</td>
+                    <td class="p-4 text-xs text-gray-700 text-left">@product.Name</td>
+                    <td class="p-4 text-xs text-gray-700 text-left">₱@product.Price</td>
+                    <td class="p-4 text-xs text-gray-700 text-left">@product.Quantity units</td>
+                    <td class="p-4 text-xs text-gray-700 text-left"></td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+    
+</div>
 
-@code {
-    protected override void OnInitialized(){
+
+    @code {
+    private List<ProductDto>? products;
+
+    protected override async Task OnInitializedAsync(){
         headerDataService.Title = "Manage Products";
+        products = await productService.GetProductsAsync();
     }
+
+
 }

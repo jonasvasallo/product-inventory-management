@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Product.InventoryManagement.Api\Product.InventoryManagement.Api.csproj" />
+    <ProjectReference Include="..\Product.InventoryManagement.Domain\Product.InventoryManagement.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
