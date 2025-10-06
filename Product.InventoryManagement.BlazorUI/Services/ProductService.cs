@@ -15,7 +15,7 @@ namespace Product.InventoryManagement.BlazorUI.Services
 
         public async Task<List<ProductDto>> GetProductsAsync()
         {
-            return await _httpClient.GetFromJsonAsync<List<ProductDto>>("https://localhost:7067/api/Product") ?? [];
+            return await _httpClient.GetFromJsonAsync<List<ProductDto>>("api/Product") ?? [];
         }
     }
 
