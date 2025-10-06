@@ -1,0 +1,16 @@
+
+<button 
+    @onclick="@HandeOnClick" 
+    class="bg-blue-950 rounded-md px-4 py-2 flex items-center gap-2 hover:cursor-pointer hover:bg-blue-950/75 duration-300 text-white"
+    >
+        @Label
+</button>
+
+@code{
+    [Parameter]
+    public EventCallback HandeOnClick { get; set; }
+    [Parameter]
+    public string Label { get; set; } = string.Empty;
+    public string Type { get; set; } = "normal";
+    
+}
