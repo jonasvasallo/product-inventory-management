@@ -6,6 +6,7 @@ using Product.InventoryManagement.Application.Features.Product.Commands.CreatePr
 using Product.InventoryManagement.Application.Features.Product.Commands.DeleteProduct;
 using Product.InventoryManagement.Application.Features.Product.Commands.UpdateProduct;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProducts;
+using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProductsWithDetails;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetProduct;
 using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
 
@@ -26,9 +27,9 @@ namespace Product.InventoryManagement.Api.Controllers
         }
         // GET: api/<ProductController>
         [HttpGet]
-        public async Task<ActionResult<List<ProductDto>>> Get()
+        public async Task<ActionResult<List<Domain.Entities.Product>>> Get()
         {
-            var products = await _mediator.Send(new GetAllProductsQuery());
+            var products = await _mediator.Send(new GetAllProductsWithDetailsQuery());
             return Ok(products);
         }
 

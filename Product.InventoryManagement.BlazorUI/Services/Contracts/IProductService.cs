@@ -4,6 +4,6 @@ namespace Product.InventoryManagement.BlazorUI.Services.Contracts
 {
     public interface IProductService
     {
-        Task<List<ProductDto>> GetProductsAsync();
+        Task<List<Domain.Entities.Product>> GetProductsAsync();
     }
 }

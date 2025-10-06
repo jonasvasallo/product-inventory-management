@@ -11,8 +11,11 @@
             <tr>
                 <th class="p-4 text-xs font-bold tracking-wide text-left">Product ID</th>
                 <th class="p-4 text-xs font-bold tracking-wide text-left">Name</th>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Description</th>
                 <th class="p-4 text-xs font-bold tracking-wide text-left">Price</th>
                 <th class="p-4 text-xs font-bold tracking-wide text-left">Stock</th>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Date Added</th>
+                <th class="p-4 text-xs font-bold tracking-wide text-left">Last Modified</th>
                 <th class="p-4 text-xs font-bold tracking-wide text-left">Action</th>
             </tr>
         </thead>
@@ -29,8 +32,11 @@
                 <tr class="even:bg-gray-100 odd:bg-white">
                     <td class="p-4 text-xs text-gray-700 text-left">@product.Id</td>
                     <td class="p-4 text-xs text-gray-700 text-left">@product.Name</td>
+                    <td class="p-4 text-xs text-gray-700 text-left max-w-[200px] overflow-ellipsis">@product.Description</td>
                     <td class="p-4 text-xs text-gray-700 text-left">₱@product.Price</td>
                     <td class="p-4 text-xs text-gray-700 text-left">@product.Quantity units</td>
+                    <td class="p-4 text-xs text-gray-700 text-left">@product.CreatedAt.ToString()</td>
+                    <td class="p-4 text-xs text-gray-700 text-left">@product.UpdatedAt.ToString()</td>
                     <td class="p-4 text-xs text-gray-700 text-left"></td>
                 </tr>
             }
@@ -42,7 +48,7 @@
 
 
     @code {
-    private List<ProductDto>? products;
+    private List<Domain.Entities.Product>? products;
 
     protected override async Task OnInitializedAsync(){
         headerDataService.Title = "Manage Products";

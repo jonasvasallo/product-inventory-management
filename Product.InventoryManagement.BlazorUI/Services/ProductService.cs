@@ -13,9 +13,9 @@ namespace Product.InventoryManagement.BlazorUI.Services
             _httpClient = httpClientFactory.CreateClient("API");
         }
 
-        public async Task<List<ProductDto>> GetProductsAsync()
+        public async Task<List<Domain.Entities.Product>> GetProductsAsync()
         {
-            return await _httpClient.GetFromJsonAsync<List<ProductDto>>("api/Product") ?? [];
+            return await _httpClient.GetFromJsonAsync<List<Domain.Entities.Product>>("api/Product") ?? [];
         }
     }
 
