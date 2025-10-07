@@ -1,6 +1,7 @@
 @page "/product"
 
 @using Product.InventoryManagement.Application.DTOs
+@using Product.InventoryManagement.BlazorUI.Models
 @using Product.InventoryManagement.BlazorUI.Services.Contracts;
 @using Product.InventoryManagement.BlazorUI.Components.Common;
 
@@ -50,8 +51,8 @@
                     <td class="p-4 text-xs text-gray-700 text-left">@product.CreatedAt.ToString()</td>
                     <td class="p-4 text-xs text-gray-700 text-left">@product.UpdatedAt.ToString()</td>
                     <td class="p-4 text-xs text-gray-700 text-left">
-                        <button @onclick="() => ShowUpdateModal = true" class="cursor-pointer"><i class="fa-solid fa-pen-to-square text-gray-400"></i></button>
-                        <button @onclick="() => ShowDeleteModal = true" class="cursor-pointer"><i class="fa-solid fa-trash text-red-800"></i></button>
+                        <button @onclick="() => OpenUpdateModal(product)" class="cursor-pointer"><i class="fa-solid fa-pen-to-square text-gray-400"></i></button>
+                        <button @onclick="() => OpenDeleteModal(product.Id)" class="cursor-pointer"><i class="fa-solid fa-trash text-red-800"></i></button>
                     </td>
                 </tr>
             }
@@ -61,8 +62,20 @@
     
 </div>
 <EditForm Model="@ProductFormModel" OnValidSubmit="@HandleCreateSubmit" FormName="CreateProductForm">
-    <ModalPopup Title="Create a Product" ShowFooter="true" IsVisible="@ShowCreateModal" IsVisibleChanged="@((val) => ShowCreateModal = val)">
+    <ModalPopup 
+    Title="Create a Product" 
+    ShowFooter="true" 
+    IsVisible="@ShowCreateModal" 
+    IsVisibleChanged="@((val) => ShowCreateModal = val)"
+    OnClose="() => CloseModal()"
+    >
         <span>Fill in the details below to create a product.</span>
+
+        @if(message is not null){
+            <div class="mt-4 mb-4">
+                <span class="text-gray-500">@message</span>
+            </div>
+        }
 
         <DataAnnotationsValidator />
         
@@ -100,9 +113,22 @@
             
     </ModalPopup>
 </EditForm>
-<EditForm Model="@ProductFormModel" OnValidSubmit="HandleUpdateSubmit" FormName="UpdateProductForm">
-    <ModalPopup Title="Update Product" ShowFooter="true" IsVisible="@ShowUpdateModal" IsVisibleChanged="@((val) => ShowUpdateModal = val)">
+<EditForm Model="@UpdateProductFormModel" OnValidSubmit="HandleUpdateSubmit" FormName="UpdateProductForm">
+    <ModalPopup 
+    Title="Update Product" 
+    ShowFooter="true" 
+    IsVisible="@ShowUpdateModal" 
+    IsVisibleChanged="@((val) => ShowUpdateModal = val)"
+    OnClose="() => CloseModal()"
+    >
         <span>Update existing details of the product here.</span>
+
+        @if (message is not null)
+        {
+            <div class="mt-4 mb-4">
+                <span class="text-gray-500">@message</span>
+            </div>
+        }
 
         <DataAnnotationsValidator />
             
@@ -114,60 +140,146 @@
             T="string"
             Label="Product Name"
             Placeholder="Enter product name here..."
-            @bind-Value="@ProductFormModel.Name"
+            @bind-Value="@UpdateProductFormModel.Name"
         />
         <InputField 
             Id="description"
             T="string"
             Label="Description"
             Placeholder="Enter description here..."
-            @bind-Value="@ProductFormModel.Description"
+            @bind-Value="@UpdateProductFormModel.Description"
         />
         <InputField 
             Id="price"
             T="decimal"
             Label="Price"
             Placeholder="Enter price here..."
-            @bind-Value="@ProductFormModel.Price"
+            @bind-Value="@UpdateProductFormModel.Price"
         />
         <InputField 
             Id="quantity"
             T="int"
             Label="Stock"
             Placeholder="Enter units here..."
-            @bind-Value="@ProductFormModel.Quantity"
+            @bind-Value="@UpdateProductFormModel.Quantity"
         />
     </ModalPopup>
 </EditForm>
 
-<ModalPopup Title="Delete Product" ShowFooter="true" IsVisible="@ShowDeleteModal" IsVisibleChanged="@((val) => ShowDeleteModal = val)">
+<ModalPopup 
+Title="Delete Product" 
+ShowFooter="true" 
+IsVisible="@ShowDeleteModal" 
+IsVisibleChanged="@((val) => ShowDeleteModal = val)" 
+OnConfirm="HandleDeleteSubmit"
+OnClose="() => CloseModal()"
+>
     <p>Are you sure you want to delete this product?</p>
+    @if(message is not null)
+    {
+        <div>
+            <span>@message</span>
+        </div>
+    }
 </ModalPopup>
 
 
 @code {
+    private Guid? selectedProductId;
     [SupplyParameterFromForm]
     private ProductFormModel? ProductFormModel {get; set;}
+    private UpdateProductFormModel? UpdateProductFormModel { get; set; }
     private bool ShowCreateModal = false;
     private bool ShowUpdateModal = false;
     private bool ShowDeleteModal = false;
     private List<Domain.Entities.Product>? products;
+    private string? message;
 
     protected override async Task OnInitializedAsync(){
         headerDataService.Title = "Manage Products";
         ProductFormModel = new();
+        UpdateProductFormModel = new();
 
         products = await productService.GetProductsAsync();
-        
+
     }
 
-    private void HandleCreateSubmit()
+    private void CloseModal()
     {
-        Console.WriteLine("Submitted Form");
+        selectedProductId = null;
+        message = string.Empty;
+        ClearForm();
     }
-    private void HandleUpdateSubmit()
+
+    private void OpenUpdateModal(Domain.Entities.Product product)
     {
-        Console.WriteLine("Submitted Form");
+        selectedProductId = product.Id;
+
+        UpdateProductFormModel = new UpdateProductFormModel
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            Price = product.Price,
+            Quantity = product.Quantity
+        };
+
+        ShowUpdateModal = true;
+    }
+
+    private void OpenDeleteModal(Guid productId)
+    {
+        selectedProductId = productId;
+        ShowDeleteModal = true;
+    }
+
+    private async Task HandleCreateSubmit()
+    {
+        HttpResponseMessage response = await productService.AddProductAsync(ProductFormModel);
+        if (response.IsSuccessStatusCode)
+        {
+            message = $"Product '{ProductFormModel.Name}' added successfully!";
+            products = await productService.GetProductsAsync();
+        }
+        else
+        {
+            string responseText = await response.Content.ReadAsStringAsync();
+            message = $"Failed to add product: {response.StatusCode} {responseText}";
+        }
+
+        StateHasChanged();
+    }
+    private async Task HandleUpdateSubmit()
+    {
+        HttpResponseMessage response = await productService.UpdateProductAsync(UpdateProductFormModel);
+        if(response.IsSuccessStatusCode)
+        {
+            message = "Product was updated successfully!";
+            products = await productService.GetProductsAsync();
+        } else {
+            string responseText = await response.Content.ReadAsStringAsync();
+            message = $"Failed to update product: {response.StatusCode} {responseText}";
+        }
+        StateHasChanged();
+    }
+
+    private async Task HandleDeleteSubmit()
+    {
+        if(selectedProductId == null)
+        {
+            message = "No selected product";
+            return;
+        }
+        HttpResponseMessage response = await productService.DeleteProductAsync(selectedProductId.Value);
+        if(response.IsSuccessStatusCode)
+        {
+            message = $"Product removed successfully!";
+            products = await productService.GetProductsAsync();
+        } else
+        {
+            string responseText = await response.Content.ReadAsStringAsync();
+            message = $"Failed to remove product: {response.StatusCode} {responseText}";
+        }
     }
 
     private void ClearForm() => ProductFormModel = new();
