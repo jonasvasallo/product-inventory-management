@@ -15,7 +15,7 @@
             {
                 <div class="flex justify-end gap-2 mt-6">
                     <Button HandeOnClick="@Close" Label="Cancel" Type="secondary"/>
-                    <Button HandeOnClick="@Confirm" Label="Confirm" Type="normal"/>
+                    <Button ButtonType="submit" HandeOnClick="@Confirm" Label="Confirm" Type="normal"/>
                 </div>
             }
         </div>
@@ -38,6 +38,6 @@
     private async Task Confirm()
     {
         await OnConfirm.InvokeAsync();
-        await Close();
+        @* await Close(); *@
     }
 }

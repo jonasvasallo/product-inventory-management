@@ -1,6 +1,7 @@
 
 <button 
     @onclick="@HandeOnClick" 
+    type="@ButtonType"
     class="@(value: $"{(@Type == "normal" ? "bg-blue-950/75 hover:bg-blue-950" : "bg-gray-300 hover:bg-gray-300/75")} rounded-md px-4 py-2 flex items-center gap-2 hover:cursor-pointer duration-300 text-white")"
     >
         @Label
@@ -13,5 +14,7 @@
     public string Label { get; set; } = string.Empty;
     [Parameter]
     public string Type { get; set; } = "normal";
+    [Parameter]
+    public string ButtonType {get; set;} = "button";
     
 }

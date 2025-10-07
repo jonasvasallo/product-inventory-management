@@ -1,29 +1,40 @@
-@using System.Linq.Expressions
+@using System.Globalization
+@typeparam T
+@inherits InputBase<T>
 
 <div class="@containerStyle">
     @if (Label != null && Label != string.Empty)
     {
         <label for="@Id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">@Label</label>
     }
-    <input type="@Type" id="@Id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="@Placeholder" required />
+    <input id="@Id"
+        type="@InputType"
+        class="@($"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {inputStyle}")"
+        placeholder="@Placeholder"
+        @bind="CurrentValueAsString"
+        @bind:event="oninput" 
+    />
 </div>
 
 @code{
-        [Parameter] 
-        public string Value { get; set; }
-        [Parameter] 
-        public EventCallback<string> ValueChanged { get; set; }
-        [Parameter] 
-        public string Label { get; set; }
-        [Parameter] 
-        public string Id { get; set; }
-        [Parameter] 
-        public string Type { get; set; } = "text";
-        [Parameter] 
-        public string Placeholder { get; set; }
-        [Parameter] 
-        public Expression<Func<string>> ValidationFor { get; set; }
-        [Parameter]
-        public string? inputStyle { get; set; }
-        public string? containerStyle { get; set; }
+    [Parameter] public string Id { get; set; }
+    [Parameter] public string? InputType { get; set; } = "text";
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string Placeholder { get; set; }
+    [Parameter] public string? inputStyle { get; set; }
+    public string? containerStyle { get; set; }
+
+    protected override bool TryParseValueFromString(string? value, out T result, out string validationErrorMessage)
+    {
+        if (BindConverter.TryConvertTo<T>(value, CultureInfo.InvariantCulture, out var parsedValue))
+        {
+            result = parsedValue;
+            validationErrorMessage = null;
+            return true;
+        }
+
+        result = default!;
+        validationErrorMessage = null;
+        return false;
+    }
 }

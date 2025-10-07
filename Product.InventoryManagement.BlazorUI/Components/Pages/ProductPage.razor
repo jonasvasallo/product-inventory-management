@@ -12,7 +12,7 @@
     <span>This is where you can efficiently oversee your inventory by adding, editing, or removing products with ease</span>
     <div class="flex justify-between">
         <div>
-            <InputField Id="search-filter" Placeholder="Search by name or ID here..." Type="text" />
+            <input type="text" placeholder="Search">
         </div>
         <div>
             <Button HandeOnClick="() => ShowCreateModal = true" Label="Add New Product" Type="normal"/>
@@ -60,18 +60,94 @@
     </table>
     
 </div>
-<ModalPopup Title="Create a Product" ShowFooter="true" IsVisible="@ShowCreateModal" IsVisibleChanged="@((val) => ShowCreateModal = val)">
-    <span>Create modal here</span>
-</ModalPopup>
-<ModalPopup Title="Update Product" ShowFooter="true" IsVisible="@ShowUpdateModal" IsVisibleChanged="@((val) => ShowUpdateModal = val)">
-    <span>Update modal here</span>
-</ModalPopup>
+<EditForm Model="@ProductFormModel" OnValidSubmit="@HandleCreateSubmit" FormName="CreateProductForm">
+    <ModalPopup Title="Create a Product" ShowFooter="true" IsVisible="@ShowCreateModal" IsVisibleChanged="@((val) => ShowCreateModal = val)">
+        <span>Fill in the details below to create a product.</span>
+
+        <DataAnnotationsValidator />
+        
+        <div class="text-red-500">
+            <ValidationSummary class="mt-4 mb-4"/>
+        </div>
+        <InputField 
+            Id="name"
+            T="string"
+            Label="Product Name"
+            Placeholder="Enter product name here..."
+            @bind-Value="@ProductFormModel.Name"
+        />
+        <InputField 
+            Id="description"
+            T="string"
+            Label="Description"
+            Placeholder="Enter description here..."
+            @bind-Value="@ProductFormModel.Description"
+        />
+        <InputField 
+            Id="price"
+            T="decimal"
+            Label="Price"
+            Placeholder="Enter price here..."
+            @bind-Value="@ProductFormModel.Price"
+        />
+        <InputField 
+            Id="quantity"
+            T="int"
+            Label="Stock"
+            Placeholder="Enter units here..."
+            @bind-Value="@ProductFormModel.Quantity"
+        />
+            
+    </ModalPopup>
+</EditForm>
+<EditForm Model="@ProductFormModel" OnValidSubmit="HandleUpdateSubmit" FormName="UpdateProductForm">
+    <ModalPopup Title="Update Product" ShowFooter="true" IsVisible="@ShowUpdateModal" IsVisibleChanged="@((val) => ShowUpdateModal = val)">
+        <span>Update existing details of the product here.</span>
+
+        <DataAnnotationsValidator />
+            
+        <div class="text-red-500">
+            <ValidationSummary class="mt-4 mb-4"/>
+        </div>
+        <InputField 
+            Id="name"
+            T="string"
+            Label="Product Name"
+            Placeholder="Enter product name here..."
+            @bind-Value="@ProductFormModel.Name"
+        />
+        <InputField 
+            Id="description"
+            T="string"
+            Label="Description"
+            Placeholder="Enter description here..."
+            @bind-Value="@ProductFormModel.Description"
+        />
+        <InputField 
+            Id="price"
+            T="decimal"
+            Label="Price"
+            Placeholder="Enter price here..."
+            @bind-Value="@ProductFormModel.Price"
+        />
+        <InputField 
+            Id="quantity"
+            T="int"
+            Label="Stock"
+            Placeholder="Enter units here..."
+            @bind-Value="@ProductFormModel.Quantity"
+        />
+    </ModalPopup>
+</EditForm>
+
 <ModalPopup Title="Delete Product" ShowFooter="true" IsVisible="@ShowDeleteModal" IsVisibleChanged="@((val) => ShowDeleteModal = val)">
     <p>Are you sure you want to delete this product?</p>
 </ModalPopup>
 
 
 @code {
+    [SupplyParameterFromForm]
+    private ProductFormModel? ProductFormModel {get; set;}
     private bool ShowCreateModal = false;
     private bool ShowUpdateModal = false;
     private bool ShowDeleteModal = false;
@@ -79,8 +155,22 @@
 
     protected override async Task OnInitializedAsync(){
         headerDataService.Title = "Manage Products";
+        ProductFormModel = new();
+
         products = await productService.GetProductsAsync();
+        
     }
+
+    private void HandleCreateSubmit()
+    {
+        Console.WriteLine("Submitted Form");
+    }
+    private void HandleUpdateSubmit()
+    {
+        Console.WriteLine("Submitted Form");
+    }
+
+    private void ClearForm() => ProductFormModel = new();
 
 
 }
