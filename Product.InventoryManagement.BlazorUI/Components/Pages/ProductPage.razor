@@ -217,7 +217,7 @@ OnClose="() => CloseModal()"
     
 </ModalPopup>
 
-    @code {
+@code {
     private Guid? selectedProductId;
     private ProductItem? selectedProductDetails;
     [SupplyParameterFromForm]
@@ -250,10 +250,10 @@ OnClose="() => CloseModal()"
         selectedProductId = id;
 
         /** 
-            I can just map the product coming from the table to the selectedProductDetails but for the sake of the requirements,
-            I will get the details through the endpoint using the id instead of the product itself
-        **/
-        selectedProductDetails = await productService.GetProductAsync(id);
+                    I can just map the product coming from the table to the selectedProductDetails but for the sake of the requirements,
+                    I will get the details through the endpoint using the id instead of the product itself
+    **/
+                selectedProductDetails = await productService.GetProductAsync(id);
 
         ShowProductModal = true;
     }

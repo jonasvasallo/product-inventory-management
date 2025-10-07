@@ -4,7 +4,7 @@
         <div class="@($"max-w-[500px] bg-white rounded-xl shadow p-6 transition-all {(IsVisible ? "scale-100 opacity-100" : "scale-125 opacity-0")}")">
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xl font-semibold">@Title</h2>
-                <button class="text-gray-500 hover:text-gray-800 cursor-pointer" @onclick="Close">
+                <button type="button" class="text-gray-500 hover:text-gray-800 cursor-pointer" @onclick="Close">
                     <i class="fa-solid fa-xmark text-gray-600"></i>
                 </button>
             </div>
@@ -14,7 +14,7 @@
             @if (ShowFooter)
             {
                 <div class="flex justify-end gap-2 mt-6">
-                    <Button HandeOnClick="@Close" Label="Cancel" Type="secondary"/>
+                    <Button ButtonType="button" HandeOnClick="@Close" Label="Cancel" Type="secondary"/>
                     <Button ButtonType="submit" HandeOnClick="@Confirm" Label="Confirm" Type="normal"/>
                 </div>
             }
