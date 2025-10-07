@@ -4,7 +4,8 @@
 @using Product.InventoryManagement.BlazorUI.Models
 @using Product.InventoryManagement.BlazorUI.Services.Contracts;
 @using Product.InventoryManagement.BlazorUI.Components.Common;
-
+@using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
+@using System.Threading.Tasks
 @rendermode InteractiveServer
 @inject HeaderDataService headerDataService;
 @inject IProductService productService;
@@ -51,6 +52,7 @@
                     <td class="p-4 text-xs text-gray-700 text-left">@product.CreatedAt.ToString()</td>
                     <td class="p-4 text-xs text-gray-700 text-left">@product.UpdatedAt.ToString()</td>
                     <td class="p-4 text-xs text-gray-700 text-left">
+                        <button @onclick="() => OpenShowProductModal(product.Id)" class="cursor-pointer"><i class="fa-solid fa-eye text-gray-400"></i></button>
                         <button @onclick="() => OpenUpdateModal(product)" class="cursor-pointer"><i class="fa-solid fa-pen-to-square text-gray-400"></i></button>
                         <button @onclick="() => OpenDeleteModal(product.Id)" class="cursor-pointer"><i class="fa-solid fa-trash text-red-800"></i></button>
                     </td>
@@ -182,17 +184,50 @@ OnClose="() => CloseModal()"
         </div>
     }
 </ModalPopup>
+<ModalPopup
+    Title="Product"
+    ShowFooter=false
+    IsVisible=ShowProductModal
+    IsVisibleChanged="@((val) => ShowProductModal = val)"
+    OnClose="() => CloseModal()"
+>
+    @if(selectedProductDetails == null)
+    {
+        <div>
+            <span class="text-red-500">No product found</span>
+        </div>
+    } else {
+        <div class="flex gap-4">
+            <div class="flex flex-col">
+                <div class="font-semibold">Product ID</div>
+                <div>Name:</div>
+                <div>Description</div>
+                <div>Price</div>
+                <div>Stocks</div>
+            </div>
+            <div class="flex flex-col">
+                <div><span>@selectedProductDetails.Id</span></div>
+                <div><span>@selectedProductDetails.Name</span></div>
+                <div><span>@selectedProductDetails.Description</span></div>
+                <div><span>₱@selectedProductDetails.Price</span></div>
+                <div><span>@selectedProductDetails.Quantity units</span></div>
+            </div>
+        </div>
+    }
+    
+</ModalPopup>
 
-
-@code {
+    @code {
     private Guid? selectedProductId;
+    private ProductItem? selectedProductDetails;
     [SupplyParameterFromForm]
     private ProductFormModel? ProductFormModel {get; set;}
     private UpdateProductFormModel? UpdateProductFormModel { get; set; }
+    private bool ShowProductModal = false;
     private bool ShowCreateModal = false;
     private bool ShowUpdateModal = false;
     private bool ShowDeleteModal = false;
-    private List<Domain.Entities.Product>? products;
+    private List<ProductItem>? products;
     private string? message;
 
     protected override async Task OnInitializedAsync(){
@@ -211,7 +246,19 @@ OnClose="() => CloseModal()"
         ClearForm();
     }
 
-    private void OpenUpdateModal(Domain.Entities.Product product)
+    private async Task OpenShowProductModal(Guid id){
+        selectedProductId = id;
+
+        /** 
+            I can just map the product coming from the table to the selectedProductDetails but for the sake of the requirements,
+            I will get the details through the endpoint using the id instead of the product itself
+        **/
+        selectedProductDetails = await productService.GetProductAsync(id);
+
+        ShowProductModal = true;
+    }
+
+    private void OpenUpdateModal(ProductItem product)
     {
         selectedProductId = product.Id;
 
