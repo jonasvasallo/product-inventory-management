@@ -15,7 +15,7 @@
             <InputField Id="search-filter" Placeholder="Search by name or ID here..." Type="text" />
         </div>
         <div>
-            <button @onclick="() => ShowDeleteModal = true" class="bg-blue-950 rounded-md px-4 py-2 flex items-center gap-2 hover:cursor-pointer hover:bg-blue-950/75 duration-300 text-white">Add New Product</button>
+            <Button HandeOnClick="() => ShowCreateModal = true" Label="Add New Product" Type="normal"/>
         </div>
     </div>
     <table class="w-full">
@@ -50,8 +50,8 @@
                     <td class="p-4 text-xs text-gray-700 text-left">@product.CreatedAt.ToString()</td>
                     <td class="p-4 text-xs text-gray-700 text-left">@product.UpdatedAt.ToString()</td>
                     <td class="p-4 text-xs text-gray-700 text-left">
-                        <button class="cursor-pointer"><i class="fa-solid fa-pen-to-square text-gray-400"></i></button>
-                        <button class="cursor-pointer"><i class="fa-solid fa-trash text-red-800"></i></button>
+                        <button @onclick="() => ShowUpdateModal = true" class="cursor-pointer"><i class="fa-solid fa-pen-to-square text-gray-400"></i></button>
+                        <button @onclick="() => ShowDeleteModal = true" class="cursor-pointer"><i class="fa-solid fa-trash text-red-800"></i></button>
                     </td>
                 </tr>
             }
@@ -60,12 +60,20 @@
     </table>
     
 </div>
+<ModalPopup Title="Create a Product" ShowFooter="true" IsVisible="@ShowCreateModal" IsVisibleChanged="@((val) => ShowCreateModal = val)">
+    <span>Create modal here</span>
+</ModalPopup>
+<ModalPopup Title="Update Product" ShowFooter="true" IsVisible="@ShowUpdateModal" IsVisibleChanged="@((val) => ShowUpdateModal = val)">
+    <span>Update modal here</span>
+</ModalPopup>
 <ModalPopup Title="Delete Product" ShowFooter="true" IsVisible="@ShowDeleteModal" IsVisibleChanged="@((val) => ShowDeleteModal = val)">
     <p>Are you sure you want to delete this product?</p>
 </ModalPopup>
 
 
 @code {
+    private bool ShowCreateModal = false;
+    private bool ShowUpdateModal = false;
     private bool ShowDeleteModal = false;
     private List<Domain.Entities.Product>? products;
 
