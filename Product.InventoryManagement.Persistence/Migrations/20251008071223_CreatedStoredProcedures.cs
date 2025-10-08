@@ -57,6 +57,8 @@ namespace Product.InventoryManagement.Persistence.Migrations
             migrationBuilder.Sql(@"
                 CREATE PROCEDURE sp_update_product(IN Id int, IN Name VARCHAR(100), IN Description LONGTEXT, IN Price DECIMAL(10,2), IN Quantity INT,IN CreatedAt DATETIME, IN UpdatedAt DATETIME)
                 BEGIN
+                    SET UpdatedAt = CURRENT_TIMESTAMP();
+
 	                UPDATE products SET products.Name = Name, products.Description = Description, products.Price = Price, products.Quantity = Quantity, products.UpdatedAt = UpdatedAt WHERE products.Id = Id;
                 END
             ");
