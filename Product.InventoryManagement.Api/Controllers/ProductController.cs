@@ -8,6 +8,7 @@ using Product.InventoryManagement.Application.Features.Product.Commands.UpdatePr
 using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProducts;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetAllProductsWithDetails;
 using Product.InventoryManagement.Application.Features.Product.Queries.GetProduct;
+using Product.InventoryManagement.Application.Features.Product.Queries.GetProductsWithPagination;
 using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,12 +26,19 @@ namespace Product.InventoryManagement.Api.Controllers
             _mediator = mediator;
             _mapper = mapper;
         }
-        // GET: api/<ProductController>
+        //// GET: api/<ProductController>
+        //[HttpGet]
+        //public async Task<ActionResult<List<Domain.Entities.Product>>> Get()
+        //{
+        //    var products = await _mediator.Send(new GetAllProductsWithDetailsQuery());
+        //    return Ok(products);
+        //}
         [HttpGet]
-        public async Task<ActionResult<List<Domain.Entities.Product>>> Get()
+        public async Task<ActionResult<PaginationResult<ProductItem>>> GetProducts(
+        [FromQuery] GetProductsWithPaginationQuery query)
         {
-            var products = await _mediator.Send(new GetAllProductsWithDetailsQuery());
-            return Ok(products);
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
 
         // GET api/<ProductController>/5

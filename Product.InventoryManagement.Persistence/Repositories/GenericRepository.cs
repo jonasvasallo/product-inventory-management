@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Product.InventoryManagement.Application.Contracts.Persistence;
+using Product.InventoryManagement.Application.DTOs;
 using Product.InventoryManagement.Domain.Common;
 using Product.InventoryManagement.Persistence.DatabaseContext;
 
@@ -64,6 +65,17 @@ namespace Product.InventoryManagement.Persistence.Repositories
         Task IGenericRepository<T>.CreateAsync(T entity)
         {
             return CreateAsync(entity);
+        }
+
+        public async Task<PaginationResult<T>> PaginationResultAsync(int pageNumber, int pageSize, CancellationToken cancellationToken)
+        {
+            var query = _inventoryDatabaseContext.Set<T>().AsNoTracking();
+
+            var totalCount = await query.CountAsync();
+
+            var items = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync(cancellationToken);
+
+            return new PaginationResult<T>(items, totalCount, pageNumber, pageSize);
         }
     }
 }

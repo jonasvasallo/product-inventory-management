@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Product.InventoryManagement.Application.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace Product.InventoryManagement.Application.Contracts.Persistence
         Task CreateAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
+
+        Task<PaginationResult<T>> PaginationResultAsync(int pageNumber, int pageSize, CancellationToken cancellationToken);
 
     }
 }
