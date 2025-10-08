@@ -218,7 +218,7 @@ OnClose="() => CloseModal()"
 </ModalPopup>
 
 @code {
-    private Guid? selectedProductId;
+    private int? selectedProductId;
     private ProductItem? selectedProductDetails;
     [SupplyParameterFromForm]
     private ProductFormModel? ProductFormModel {get; set;}
@@ -246,7 +246,7 @@ OnClose="() => CloseModal()"
         ClearForm();
     }
 
-    private async Task OpenShowProductModal(Guid id){
+    private async Task OpenShowProductModal(int id){
         selectedProductId = id;
 
         /** 
@@ -274,7 +274,7 @@ OnClose="() => CloseModal()"
         ShowUpdateModal = true;
     }
 
-    private void OpenDeleteModal(Guid productId)
+    private void OpenDeleteModal(int productId)
     {
         selectedProductId = productId;
         ShowDeleteModal = true;

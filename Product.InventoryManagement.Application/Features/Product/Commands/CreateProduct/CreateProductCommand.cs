@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Product.InventoryManagement.Application.Features.Product.Commands.CreateProduct
 {
-    public class CreateProductCommand : IRequest<Guid>
+    public class CreateProductCommand : IRequest<int>
     {
         public string Name { get; set; }
         public string Description { get; set; }

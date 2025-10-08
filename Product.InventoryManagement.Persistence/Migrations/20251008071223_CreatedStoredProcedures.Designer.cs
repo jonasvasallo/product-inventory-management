@@ -12,8 +12,8 @@ using Product.InventoryManagement.Persistence.DatabaseContext;
 namespace Product.InventoryManagement.Persistence.Migrations
 {
     [DbContext(typeof(InventoryDatabaseContext))]
-    [Migration("20251002064538_initial")]
-    partial class initial
+    [Migration("20251008071223_CreatedStoredProcedures")]
+    partial class CreatedStoredProcedures
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,11 @@ namespace Product.InventoryManagement.Persistence.Migrations
 
             modelBuilder.Entity("Product.InventoryManagement.Domain.Entities.Product", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -40,10 +42,11 @@ namespace Product.InventoryManagement.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal(10, 2)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -58,33 +61,33 @@ namespace Product.InventoryManagement.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6c93b54b-0ae3-4294-9ae6-4c5280ee5c63"),
-                            CreatedAt = new DateTime(2025, 10, 2, 14, 45, 37, 2, DateTimeKind.Local).AddTicks(5165),
+                            Id = 1,
+                            CreatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 916, DateTimeKind.Local).AddTicks(3820),
                             Description = "Mouse na malibag",
                             Name = "Mouse",
                             Price = 1400.99m,
                             Quantity = 12,
-                            UpdatedAt = new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7298)
+                            UpdatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(2262)
                         },
                         new
                         {
-                            Id = new Guid("5ea76040-f484-4ae0-8486-e690d8a8c88e"),
-                            CreatedAt = new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7694),
+                            Id = 2,
+                            CreatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(2838),
                             Description = "Keyboard na sira Enter key",
                             Name = "Keyboard",
                             Price = 2250m,
                             Quantity = 6,
-                            UpdatedAt = new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7697)
+                            UpdatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(2842)
                         },
                         new
                         {
-                            Id = new Guid("9c815d01-cc82-4adb-957b-850a6a7a2f2b"),
-                            CreatedAt = new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7700),
+                            Id = 3,
+                            CreatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(3018),
                             Description = "Pwedeng pang halo sa sinigang",
                             Name = "Headphones",
                             Price = 1600.50m,
                             Quantity = 24,
-                            UpdatedAt = new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7701)
+                            UpdatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(3019)
                         });
                 });
 #pragma warning restore 612, 618

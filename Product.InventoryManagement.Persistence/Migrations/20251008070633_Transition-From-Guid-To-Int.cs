@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -8,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Product.InventoryManagement.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class TransitionFromGuidToInt : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,12 +21,13 @@ namespace Product.InventoryManagement.Persistence.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Name = table.Column<string>(type: "longtext", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Price = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
@@ -41,9 +43,9 @@ namespace Product.InventoryManagement.Persistence.Migrations
                 columns: new[] { "Id", "CreatedAt", "Description", "Name", "Price", "Quantity", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("5ea76040-f484-4ae0-8486-e690d8a8c88e"), new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7694), "Keyboard na sira Enter key", "Keyboard", 2250m, 6, new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7697) },
-                    { new Guid("6c93b54b-0ae3-4294-9ae6-4c5280ee5c63"), new DateTime(2025, 10, 2, 14, 45, 37, 2, DateTimeKind.Local).AddTicks(5165), "Mouse na malibag", "Mouse", 1400.99m, 12, new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7298) },
-                    { new Guid("9c815d01-cc82-4adb-957b-850a6a7a2f2b"), new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7700), "Pwedeng pang halo sa sinigang", "Headphones", 1600.50m, 24, new DateTime(2025, 10, 2, 14, 45, 37, 3, DateTimeKind.Local).AddTicks(7701) }
+                    { 1, new DateTime(2025, 10, 8, 15, 6, 33, 96, DateTimeKind.Local).AddTicks(8987), "Mouse na malibag", "Mouse", 1400.99m, 12, new DateTime(2025, 10, 8, 15, 6, 33, 98, DateTimeKind.Local).AddTicks(538) },
+                    { 2, new DateTime(2025, 10, 8, 15, 6, 33, 98, DateTimeKind.Local).AddTicks(910), "Keyboard na sira Enter key", "Keyboard", 2250m, 6, new DateTime(2025, 10, 8, 15, 6, 33, 98, DateTimeKind.Local).AddTicks(912) },
+                    { 3, new DateTime(2025, 10, 8, 15, 6, 33, 98, DateTimeKind.Local).AddTicks(915), "Pwedeng pang halo sa sinigang", "Headphones", 1600.50m, 24, new DateTime(2025, 10, 8, 15, 6, 33, 98, DateTimeKind.Local).AddTicks(916) }
                 });
         }
 

@@ -35,7 +35,7 @@ namespace Product.InventoryManagement.Api.Controllers
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductItem>> Get(Guid id)
+        public async Task<ActionResult<ProductItem>> Get(int id)
         {
             var product = await _mediator.Send(new GetProductQuery(id));
             return Ok(product);
@@ -51,7 +51,7 @@ namespace Product.InventoryManagement.Api.Controllers
 
         // PUT api/<ProductController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<UpdateProductCommand>> Put(Guid id, UpdateProductDto dto)
+        public async Task<ActionResult<UpdateProductCommand>> Put(int id, UpdateProductDto dto)
         {
             var command = new UpdateProductCommand
             {
@@ -67,7 +67,7 @@ namespace Product.InventoryManagement.Api.Controllers
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Unit>> Delete(Guid id)
+        public async Task<ActionResult<Unit>> Delete(int id)
         {
             var deleteProductCommand = new DeleteProductCommand { Id = id };
             var response = await _mediator.Send(deleteProductCommand);

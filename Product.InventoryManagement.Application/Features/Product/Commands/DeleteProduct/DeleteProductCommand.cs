@@ -9,6 +9,6 @@ namespace Product.InventoryManagement.Application.Features.Product.Commands.Dele
 {
     public class DeleteProductCommand : IRequest<Unit>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

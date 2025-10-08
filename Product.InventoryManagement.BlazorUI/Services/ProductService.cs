@@ -15,7 +15,7 @@ namespace Product.InventoryManagement.BlazorUI.Services
             _httpClient = httpClientFactory.CreateClient("API");
         }
 
-        public async Task<ProductItem> GetProductAsync(Guid id)
+        public async Task<ProductItem> GetProductAsync(int id)
         {
             return await _httpClient.GetFromJsonAsync<ProductItem>($"api/product/{id}");
         }
@@ -37,7 +37,7 @@ namespace Product.InventoryManagement.BlazorUI.Services
             return response;
         }
 
-        public async Task<HttpResponseMessage> DeleteProductAsync(Guid id)
+        public async Task<HttpResponseMessage> DeleteProductAsync(int id)
         {
             var response = await _httpClient.DeleteAsync($"api/product/{id}");
             return response;

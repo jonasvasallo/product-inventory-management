@@ -35,7 +35,7 @@ namespace Product.InventoryManagement.Application.Features.Product.Commands.Upda
             //    .MustAsync(ProductNameUnique).WithMessage("Product name must be unique!");
         }
 
-        private async Task<bool> ProductMustExist(Guid id, CancellationToken token)
+        private async Task<bool> ProductMustExist(int id, CancellationToken token)
         {
             var product = await _productRepository.GetByIdAsync(id);
             if (product == null) {

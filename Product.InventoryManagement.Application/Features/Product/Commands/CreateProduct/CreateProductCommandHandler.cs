@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Product.InventoryManagement.Application.Features.Product.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
@@ -19,7 +19,7 @@ namespace Product.InventoryManagement.Application.Features.Product.Commands.Crea
             _mapper = mapper;
             _productRepository = productRepository;
         }
-        public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateProductCommandValidator(_productRepository);
             var validationResult = await validator.ValidateAsync(request);

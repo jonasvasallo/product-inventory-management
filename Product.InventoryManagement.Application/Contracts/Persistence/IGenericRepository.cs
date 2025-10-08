@@ -10,8 +10,8 @@ namespace Product.InventoryManagement.Application.Contracts.Persistence
     {
         Task<IReadOnlyList<T>> GetAsync();
         Task<IReadOnlyList<T>> GetBySpAsync();
-        Task<T> GetByIdAsync(Guid id);
-        Task<T> GetByIdUsingSpAsync(Guid id);
+        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdUsingSpAsync(int id);
         Task CreateAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);

@@ -21,7 +21,6 @@ namespace Product.InventoryManagement.Persistence.DatabaseContext
         // Ex.
         // public DbSet<LeaveType> LeaveTypes { get; set; }
         public DbSet<ProductItem> Products { get; set; }
-        public DbSet<InventoryTransaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,10 +36,6 @@ namespace Product.InventoryManagement.Persistence.DatabaseContext
             {
                 if (entry.State == EntityState.Added)
                 {
-                    if (entry.Entity.Id == Guid.Empty)
-                    {
-                        entry.Entity.Id = Guid.NewGuid();
-                    }
 
                     entry.Entity.CreatedAt = DateTime.UtcNow;
                     entry.Entity.UpdatedAt = DateTime.UtcNow; 

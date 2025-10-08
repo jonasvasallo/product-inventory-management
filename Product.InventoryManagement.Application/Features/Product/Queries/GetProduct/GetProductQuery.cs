@@ -9,7 +9,7 @@ using ProductItem = Product.InventoryManagement.Domain.Entities.Product;
 
 namespace Product.InventoryManagement.Application.Features.Product.Queries.GetProduct
 {
-    public record GetProductQuery(Guid Id) : IRequest<ProductItem>
+    public record GetProductQuery(int Id) : IRequest<ProductItem>
     {
     }
 }

@@ -22,46 +22,13 @@ namespace Product.InventoryManagement.Persistence.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Product.InventoryManagement.Domain.Entities.InventoryTransaction", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Reason")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("UnitsAdded")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnitsRemoved")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Transactions");
-                });
-
             modelBuilder.Entity("Product.InventoryManagement.Domain.Entities.Product", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -91,45 +58,34 @@ namespace Product.InventoryManagement.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b6aab9b5-7dcb-4507-b09e-51ea4de3502c"),
-                            CreatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 488, DateTimeKind.Local).AddTicks(6622),
+                            Id = 1,
+                            CreatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 916, DateTimeKind.Local).AddTicks(3820),
                             Description = "Mouse na malibag",
                             Name = "Mouse",
                             Price = 1400.99m,
                             Quantity = 12,
-                            UpdatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(8651)
+                            UpdatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(2262)
                         },
                         new
                         {
-                            Id = new Guid("3b1e19fe-7a54-44c3-95e2-bc8ee9e977d9"),
-                            CreatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9034),
+                            Id = 2,
+                            CreatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(2838),
                             Description = "Keyboard na sira Enter key",
                             Name = "Keyboard",
                             Price = 2250m,
                             Quantity = 6,
-                            UpdatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9036)
+                            UpdatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(2842)
                         },
                         new
                         {
-                            Id = new Guid("3416aa1d-0080-405d-8307-d49c81575a52"),
-                            CreatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9041),
+                            Id = 3,
+                            CreatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(3018),
                             Description = "Pwedeng pang halo sa sinigang",
                             Name = "Headphones",
                             Price = 1600.50m,
                             Quantity = 24,
-                            UpdatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9041)
+                            UpdatedAt = new DateTime(2025, 10, 8, 15, 12, 22, 918, DateTimeKind.Local).AddTicks(3019)
                         });
-                });
-
-            modelBuilder.Entity("Product.InventoryManagement.Domain.Entities.InventoryTransaction", b =>
-                {
-                    b.HasOne("Product.InventoryManagement.Domain.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

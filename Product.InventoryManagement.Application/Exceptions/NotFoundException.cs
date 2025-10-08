@@ -8,7 +8,7 @@ namespace Product.InventoryManagement.Application.Exceptions
 {
     public class NotFoundException : Exception
     {
-        public NotFoundException(string name, Guid id) : base($"{name}{id} was not found.")
+        public NotFoundException(string name, int id) : base($"{name}{id} was not found.")
         {
             
         }
