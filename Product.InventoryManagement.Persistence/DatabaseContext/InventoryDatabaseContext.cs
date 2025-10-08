@@ -25,6 +25,7 @@ namespace Product.InventoryManagement.Persistence.DatabaseContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryDatabaseContext).Assembly);
 
             base.OnModelCreating(modelBuilder);
@@ -36,6 +37,11 @@ namespace Product.InventoryManagement.Persistence.DatabaseContext
             {
                 if (entry.State == EntityState.Added)
                 {
+                    if (entry.Entity.Id == Guid.Empty)
+                    {
+                        entry.Entity.Id = Guid.NewGuid();
+                    }
+
                     entry.Entity.CreatedAt = DateTime.UtcNow;
                     entry.Entity.UpdatedAt = DateTime.UtcNow; 
                 }

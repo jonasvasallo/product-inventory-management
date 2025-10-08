@@ -20,7 +20,7 @@ namespace Product.InventoryManagement.Application.Features.Product.Queries.GetPr
         }
         public async Task<ProductItem> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.GetByIdAsync(request.Id);
+            var product = await _productRepository.GetByIdUsingSpAsync(request.Id);
 
             if(product == null)
             {

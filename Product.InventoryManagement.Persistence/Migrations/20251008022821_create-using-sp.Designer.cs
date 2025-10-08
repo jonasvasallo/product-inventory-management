@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Product.InventoryManagement.Persistence.DatabaseContext;
 
@@ -11,9 +12,11 @@ using Product.InventoryManagement.Persistence.DatabaseContext;
 namespace Product.InventoryManagement.Persistence.Migrations
 {
     [DbContext(typeof(InventoryDatabaseContext))]
-    partial class InventoryDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20251008022821_create-using-sp")]
+    partial class createusingsp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,33 +94,33 @@ namespace Product.InventoryManagement.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b6aab9b5-7dcb-4507-b09e-51ea4de3502c"),
-                            CreatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 488, DateTimeKind.Local).AddTicks(6622),
+                            Id = new Guid("cf8b332e-f622-43e9-ba2e-756cf01dadfc"),
+                            CreatedAt = new DateTime(2025, 10, 8, 10, 28, 20, 723, DateTimeKind.Local).AddTicks(675),
                             Description = "Mouse na malibag",
                             Name = "Mouse",
                             Price = 1400.99m,
                             Quantity = 12,
-                            UpdatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(8651)
+                            UpdatedAt = new DateTime(2025, 10, 8, 10, 28, 20, 724, DateTimeKind.Local).AddTicks(2067)
                         },
                         new
                         {
-                            Id = new Guid("3b1e19fe-7a54-44c3-95e2-bc8ee9e977d9"),
-                            CreatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9034),
+                            Id = new Guid("e8b37190-5a92-414e-bb40-10b0686c8e55"),
+                            CreatedAt = new DateTime(2025, 10, 8, 10, 28, 20, 724, DateTimeKind.Local).AddTicks(2455),
                             Description = "Keyboard na sira Enter key",
                             Name = "Keyboard",
                             Price = 2250m,
                             Quantity = 6,
-                            UpdatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9036)
+                            UpdatedAt = new DateTime(2025, 10, 8, 10, 28, 20, 724, DateTimeKind.Local).AddTicks(2457)
                         },
                         new
                         {
-                            Id = new Guid("3416aa1d-0080-405d-8307-d49c81575a52"),
-                            CreatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9041),
+                            Id = new Guid("af746c68-72aa-4666-9be5-1bca25e04ee1"),
+                            CreatedAt = new DateTime(2025, 10, 8, 10, 28, 20, 724, DateTimeKind.Local).AddTicks(2461),
                             Description = "Pwedeng pang halo sa sinigang",
                             Name = "Headphones",
                             Price = 1600.50m,
                             Quantity = 24,
-                            UpdatedAt = new DateTime(2025, 10, 8, 11, 4, 49, 489, DateTimeKind.Local).AddTicks(9041)
+                            UpdatedAt = new DateTime(2025, 10, 8, 10, 28, 20, 724, DateTimeKind.Local).AddTicks(2462)
                         });
                 });
 

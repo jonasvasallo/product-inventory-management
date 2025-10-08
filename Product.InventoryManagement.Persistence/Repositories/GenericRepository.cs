@@ -40,6 +40,21 @@ namespace Product.InventoryManagement.Persistence.Repositories
             return await _inventoryDatabaseContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(entity => entity.Id == id);
         }
 
+        public async Task<T> GetByIdUsingSpAsync(Guid id)
+        {
+            var list = await _inventoryDatabaseContext.Set<T>()
+                .FromSqlInterpolated($"CALL sp_get_product_by_id({id})")
+                .AsNoTracking()
+                .ToListAsync();
+
+            return list.FirstOrDefault();
+        }
+
+        public async Task<IReadOnlyList<T>> GetBySpAsync()
+        {
+            return await _inventoryDatabaseContext.Set<T>().FromSql($"CALL sp_get_all_products()").ToListAsync();
+        }
+
         public async Task UpdateAsync(T entity)
         {
             _inventoryDatabaseContext.Entry(entity).State = EntityState.Modified;

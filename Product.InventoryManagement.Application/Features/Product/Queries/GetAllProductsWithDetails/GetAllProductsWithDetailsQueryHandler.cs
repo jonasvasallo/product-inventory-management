@@ -20,7 +20,7 @@ namespace Product.InventoryManagement.Application.Features.Product.Queries.GetAl
         }
         public async Task<List<Domain.Entities.Product>> Handle(GetAllProductsWithDetailsQuery request, CancellationToken cancellationToken)
         {
-            var products = await _productRepository.GetAsync();
+            var products = await _productRepository.GetBySpAsync();
             var data = _mapper.Map<List<Domain.Entities.Product>>(products);
             return data;
         }
