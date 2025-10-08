@@ -31,8 +31,8 @@ namespace Product.InventoryManagement.Application.Features.Product.Commands.Upda
             RuleFor(product => product.Price)
                 .GreaterThan(0).WithMessage("{PropertyName} must be greater than 0")
                 .LessThan(999999999).WithMessage("{PropertyName} must not exceed 999 million");
-            RuleFor(product => product)
-                .MustAsync(ProductNameUnique).WithMessage("Product name must be unique!");
+            //RuleFor(product => product)
+            //    .MustAsync(ProductNameUnique).WithMessage("Product name must be unique!");
         }
 
         private async Task<bool> ProductMustExist(Guid id, CancellationToken token)
