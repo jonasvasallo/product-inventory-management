@@ -2,8 +2,7 @@
 <button 
     @onclick="@HandeOnClick" 
     type="@ButtonType"
-    class="@(value: $"{(@Type == "normal" ? "bg-blue-950/75 hover:bg-blue-950" : "bg-gray-300 hover:bg-gray-300/75")} rounded-md px-4 py-2 flex items-center gap-2 hover:cursor-pointer duration-300 text-white")"
-    >
+        class="@(value: $"{(@Type == "normal" ? "bg-blue-950 hover:bg-blue-950/75" : "bg-gray-300 hover:bg-gray-300/75")} rounded-md px-4 py-2 flex items-center gap-2 hover:cursor-pointer duration-300 text-white")">
         @Label
 </button>
 

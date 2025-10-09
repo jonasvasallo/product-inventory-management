@@ -20,9 +20,9 @@ namespace Product.InventoryManagement.BlazorUI.Services
             return await _httpClient.GetFromJsonAsync<ProductItem>($"api/product/{id}");
         }
 
-        public async Task<List<ProductItem>> GetProductsAsync()
+        public async Task<PaginationResult<ProductItem>> GetProductsAsync(int pageNumber, int pageSize)
         {
-            return await _httpClient.GetFromJsonAsync<List<ProductItem>>("api/Product") ?? [];
+            return await _httpClient.GetFromJsonAsync<PaginationResult<ProductItem>>($"api/Product?pageNumber={pageNumber}&pageSize={pageSize}");
         }
 
         public async Task<HttpResponseMessage> AddProductAsync(ProductFormModel product)
