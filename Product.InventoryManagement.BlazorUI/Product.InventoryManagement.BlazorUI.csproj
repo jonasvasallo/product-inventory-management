@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Product.InventoryManagement.Domain\Product.InventoryManagement.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+
 </Project>

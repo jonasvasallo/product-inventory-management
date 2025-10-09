@@ -22,7 +22,7 @@
                 <option>15</option>
             </select>
 
-            <input type="text" placeholder="Search by ID or Name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <input @bind="SearchText" @bind:event="oninput" @onkeydown="OnSearch" type="text" placeholder="Search by ID" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </div>
         <div>
             <Button HandeOnClick="() => ShowCreateModal = true" Label="Add New Product" Type="normal"/>
@@ -218,7 +218,7 @@ OnClose="() => CloseModal()"
     @if(selectedProductDetails == null)
     {
         <div>
-            <span class="text-red-500">No product found</span>
+            <span class="text-red-500">@message</span>
         </div>
     } else {
         <div class="flex gap-4">
@@ -242,6 +242,8 @@ OnClose="() => CloseModal()"
 </ModalPopup>
 
 @code {
+    private string SearchText = string.Empty;
+
     private List<ProductItem>? products;
     private int CurrentPage = 1;
     private int PageSize = 5;
@@ -268,6 +270,31 @@ OnClose="() => CloseModal()"
 
         await FetchProducts();
 
+    }
+
+    private async Task OnSearch(KeyboardEventArgs e)
+    {
+        if(e.Key == "Enter")
+        {
+            await SearchProductAsync();
+        }
+    }
+
+    private async Task SearchProductAsync()
+    {
+        if (string.IsNullOrWhiteSpace(SearchText))
+            return;
+
+        if (int.TryParse(SearchText, out int productId))
+        {
+            await OpenShowProductModal(productId);
+        }
+        else
+        {
+            message = $"Invalid ID '{SearchText}'. Please enter a numeric ID.";
+            ShowProductModal = true;
+            selectedProductDetails = null;
+        }
     }
 
     private async Task FetchProducts()
@@ -316,10 +343,19 @@ OnClose="() => CloseModal()"
         selectedProductId = id;
 
         /** 
-                    I can just map the product coming from the table to the selectedProductDetails but for the sake of the requirements,
-                    I will get the details through the endpoint using the id instead of the product itself
+                                    I can just map the product coming from the table to the selectedProductDetails but for the sake of the requirements,
+                                    I will get the details through the endpoint using the id instead of the product itself
     **/
-                selectedProductDetails = await productService.GetProductAsync(id);
+        var response = await productService.GetProductAsync(id);
+        if(response.Success && response.Data != null)
+        {
+            selectedProductDetails = response.Data;
+        }
+        else
+        {
+            message = response.Message;
+            selectedProductDetails = null;
+        }
 
         ShowProductModal = true;
     }
@@ -348,31 +384,24 @@ OnClose="() => CloseModal()"
 
     private async Task HandleCreateSubmit()
     {
-        HttpResponseMessage response = await productService.AddProductAsync(ProductFormModel);
-        if (response.IsSuccessStatusCode)
+        var response = await productService.AddProductAsync(ProductFormModel);
+        message = response.Message;
+        if (response.Success)
         {
-            message = $"Product '{ProductFormModel.Name}' added successfully!";
             await FetchProducts();
-        }
-        else
-        {
-            string responseText = await response.Content.ReadAsStringAsync();
-            message = $"Failed to add product: {response.StatusCode} {responseText}";
         }
 
         StateHasChanged();
     }
     private async Task HandleUpdateSubmit()
     {
-        HttpResponseMessage response = await productService.UpdateProductAsync(UpdateProductFormModel);
-        if(response.IsSuccessStatusCode)
+        var response = await productService.UpdateProductAsync(UpdateProductFormModel);
+        message = response.Message;
+        if (response.Success)
         {
-            message = "Product was updated successfully!";
             await FetchProducts();
-        } else {
-            string responseText = await response.Content.ReadAsStringAsync();
-            message = $"Failed to update product: {response.StatusCode} {responseText}";
         }
+
         StateHasChanged();
     }
 
@@ -383,19 +412,20 @@ OnClose="() => CloseModal()"
             message = "No selected product";
             return;
         }
-        HttpResponseMessage response = await productService.DeleteProductAsync(selectedProductId.Value);
-        if(response.IsSuccessStatusCode)
+        var response = await productService.DeleteProductAsync(selectedProductId.Value);
+        message = response.Message;
+        if(response.Success)
         {
-            message = $"Product removed successfully!";
             await FetchProducts();
-        } else
-        {
-            string responseText = await response.Content.ReadAsStringAsync();
-            message = $"Failed to remove product: {response.StatusCode} {responseText}";
         }
+
+        StateHasChanged();
     }
 
-    private void ClearForm() => ProductFormModel = new();
+    private void ClearForm() {
+        ProductFormModel = new ();
+        UpdateProductFormModel = new();
+    }
 
 
 }

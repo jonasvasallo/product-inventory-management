@@ -8,11 +8,11 @@ namespace Product.InventoryManagement.BlazorUI.Services.Contracts
     {
         Task<PaginationResult<ProductItem>> GetProductsAsync(int pageNumber, int pageSize);
 
-        Task<ProductItem> GetProductAsync(int id);
+        Task<ApiResponse<ProductItem>> GetProductAsync(int id);
 
-        Task<HttpResponseMessage> AddProductAsync(ProductFormModel product);
-        Task<HttpResponseMessage> UpdateProductAsync(UpdateProductFormModel product);
+        Task<ApiResponse<ProductItem>> AddProductAsync(ProductFormModel product);
+        Task<ApiResponse<ProductItem>> UpdateProductAsync(UpdateProductFormModel product);
 
-        Task<HttpResponseMessage> DeleteProductAsync(int id);
+        Task<ApiResponse<ProductItem>> DeleteProductAsync(int id);
     }
 }
