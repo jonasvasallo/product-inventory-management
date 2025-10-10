@@ -1,4 +1,5 @@
 ﻿using Product.InventoryManagement.BlazorUI.Models;
+using System.Text.Json;
 
 namespace Product.InventoryManagement.BlazorUI.Services
 {
@@ -17,7 +18,16 @@ namespace Product.InventoryManagement.BlazorUI.Services
                 {
                     try
                     {
-                        apiResponse.Data = await response.Content.ReadFromJsonAsync<T>();
+                        var content = await response.Content.ReadAsStringAsync();
+
+                        // added check for handling requests without content (e.g. delete endpoint for products)
+                        if (!string.IsNullOrWhiteSpace(content))
+                        {
+                            apiResponse.Data = JsonSerializer.Deserialize<T>(content, new JsonSerializerOptions
+                            {
+                                PropertyNameCaseInsensitive = true
+                            });
+                        }
                         apiResponse.Message = "Request successful";
                     }
                     catch (Exception ex)
