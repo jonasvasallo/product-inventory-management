@@ -43,7 +43,7 @@ namespace Product.InventoryManagement.Api.Controllers
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductItem>> Get(int id)
+        public async Task<ActionResult<ProductItem>> GetById(int id)
         {
             var product = await _mediator.Send(new GetProductQuery(id));
             return Ok(product);
@@ -54,7 +54,7 @@ namespace Product.InventoryManagement.Api.Controllers
         public async Task<ActionResult> Post(CreateProductCommand createProductCommand)
         {
             var response = await _mediator.Send(createProductCommand);
-            return CreatedAtAction(nameof(Get), new { Id = response });
+            return CreatedAtAction(nameof(GetById), new { id = response }, createProductCommand);
         }
 
         // PUT api/<ProductController>/5

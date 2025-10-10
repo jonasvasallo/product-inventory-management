@@ -15,6 +15,7 @@ namespace Product.InventoryManagement.Application.DTOs
         public int TotalCount { get; set; }
         public int TotalPages => (int) Math.Ceiling((double) TotalCount / PageSize);
 
+        public PaginationResult() { }
         public PaginationResult(List<T> items, int count, int pageNumber, int pageSize)
         {
             Items = items;

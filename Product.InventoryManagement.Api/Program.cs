@@ -1,5 +1,6 @@
 using Product.InventoryManagement.Api.Middleware;
 using Product.InventoryManagement.Application;
+using Product.InventoryManagement.Authentication;
 using Product.InventoryManagement.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.ConfigureAuthenticationServices(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,6 +33,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("all");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

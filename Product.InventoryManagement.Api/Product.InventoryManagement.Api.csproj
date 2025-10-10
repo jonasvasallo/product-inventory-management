@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Product.InventoryManagement.Application\Product.InventoryManagement.Application.csproj" />
+    <ProjectReference Include="..\Product.InventoryManagement.Authentication\Product.InventoryManagement.Authentication.csproj" />
     <ProjectReference Include="..\Product.InventoryManagement.Persistence\Product.InventoryManagement.Persistence.csproj" />
   </ItemGroup>
 
